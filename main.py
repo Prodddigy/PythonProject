@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 import ButtonPack as bp
 
+global entry
 
 
 
@@ -15,7 +16,7 @@ if __name__ == "__main__":
 
     root.title("Najlepszy Kalkulator na świecie!")
 
-    global entry
+
 
     entry = Entry(root, width=50, borderwidth=5)
 
@@ -25,7 +26,7 @@ if __name__ == "__main__":
     memo_box.grid(row = 0 , column = 4 )
 
     bp.number_buttons(root,entry)
-
+    bp.mainpulation_utilities_buttons(root, entry)
 
     root.mainloop()
 

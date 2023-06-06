@@ -14,10 +14,6 @@ def number_buttons(root,entry):
     button_0 = Button(root, text="0", padx=40, pady=20, command=lambda: bl.button_click(0,entry))
     button_dot = Button(root, text=".", padx=40, pady=20, command=lambda: bl.button_click(".", entry))
 
-    button_negate = Button(root, text="¬", padx=40, pady=20, )
-
-
-
     button_1.grid(row=3, column=0)
     button_2.grid(row=3, column=1)
     button_3.grid(row=3, column=2)
@@ -27,10 +23,19 @@ def number_buttons(root,entry):
     button_7.grid(row=1, column=0)
     button_8.grid(row=1, column=1)
     button_9.grid(row=1, column=2)
-    button_dot.grid(row=4, column=2)
     button_0.grid(row=4, column=1)
+    button_dot.grid(row=4, column=2)
+
+
+def basic_calculation_buttons(root, entry):
+    button_addition = Button(root, text="+", padx=39, pady=20)
+    return
+def mainpulation_utilities_buttons(root, entry):
+
+    button_negate = Button(root, text="¬", padx=40, pady=20, command=lambda: bl.button_negate(entry))
+
+    button_clear = Button(root, text="WYCZYŚĆ", padx=75, pady=20,command=lambda: bl.button_clear(entry) )
 
     button_negate.grid(row=4, column=0)
 
-
-
+    button_clear.grid(row=4, column=1, columnspan=2)
