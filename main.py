@@ -26,7 +26,8 @@ if __name__ == "__main__":
     memo_box.grid(row = 0 , column = 4 )
 
     bp.number_buttons(root,entry)
-    bp.mainpulation_utilities_buttons(root, entry)
+    bp.manipulation_utilities_buttons(root, entry)
+    bp.basic_calculation_buttons(root,entry)
 
     root.mainloop()
 
