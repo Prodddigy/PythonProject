@@ -33,12 +33,14 @@ def basic_calculation_buttons(root, entry):
     button_addition = Button(root, text="+", padx=69, pady=20, command=lambda: bl.button_add(entry))
     button_subtraction = Button(root, text="-", padx=69, pady=20, command=lambda: bl.button_subtract(entry))
     button_multiplication = Button(root, text="*", padx=69, pady=20, command=lambda: bl.button_multiply(entry))
+    button_division = Button(root, text="/",padx=69, pady=20,command=lambda: bl.button_divide(entry))
 
     button_equal = Button(root, text="=", padx=69, pady=20, command=lambda: bl.button_equal(entry))
 
     button_addition.grid(row=4, column=4)
     button_subtraction.grid(row=3, column=4)
     button_multiplication.grid(row=2, column=4)
+    button_division.grid(row=1,column=4)
 
     button_equal.grid(row=5, column=4)
 

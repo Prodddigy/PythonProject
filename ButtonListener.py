@@ -102,16 +102,9 @@ def button_equal(entry):
                 entry.insert(0, current_number / float(second_number))
 
             except ZeroDivisionError:
-                messagebox.showinfo(title="Division by zero Error", message="Come on, you are better than that"
+                messagebox.showinfo(title="Division by zero Error", message="Come on, you are better than that "
                                                                             "try not to divide by zero...")
                 entry.delete(0,END)
 
 
-            if (float(second_number) == 0):
-                messagebox.showinfo(title="Dzielenie przez zero", message="Każdy student wie, że dzielenie przez zero "
-                                                                          "niegrzeczne jest!")
-            elif (second_number == '' or f_num == 'None'):
-                e.insert(0, None)
 
-            else:
-                entry.insert(0, current_number / float(second_number))
