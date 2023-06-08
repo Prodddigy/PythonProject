@@ -1,5 +1,6 @@
-from tkinter import END, Button, Frame, Label
+from tkinter import Button, Frame, Label
 import ButtonListener as bl
+import MemoryManipulation as mm
 
 
 def number_buttons(root, entry):
@@ -16,17 +17,17 @@ def number_buttons(root, entry):
     button_0 = Button(root, text="0", padx=50, pady=20, command=lambda: bl.button_number_choice(0, entry))
     button_dot = Button(root, text=".", padx=51, pady=20, command=lambda: bl.button_number_choice(".", entry))
 
-    button_1.grid(row=4, column=0)
-    button_2.grid(row=4, column=1)
-    button_3.grid(row=4, column=2)
-    button_4.grid(row=3, column=0)
-    button_5.grid(row=3, column=1)
-    button_6.grid(row=3, column=2)
-    button_7.grid(row=2, column=0)
-    button_8.grid(row=2, column=1)
-    button_9.grid(row=2, column=2)
-    button_0.grid(row=5, column=1)
-    button_dot.grid(row=5, column=2)
+    button_1.grid(row=5, column=0)
+    button_2.grid(row=5, column=1)
+    button_3.grid(row=5, column=2)
+    button_4.grid(row=4, column=0)
+    button_5.grid(row=4, column=1)
+    button_6.grid(row=4, column=2)
+    button_7.grid(row=3, column=0)
+    button_8.grid(row=3, column=1)
+    button_9.grid(row=3, column=2)
+    button_0.grid(row=6, column=1)
+    button_dot.grid(row=6, column=2)
 
 
 def basic_calculation_buttons(root, entry):
@@ -37,12 +38,12 @@ def basic_calculation_buttons(root, entry):
 
     button_equal = Button(root, text="=", padx=69, pady=20, command=lambda: bl.button_equal(entry))
 
-    button_addition.grid(row=4, column=4)
-    button_subtraction.grid(row=3, column=4)
-    button_multiplication.grid(row=2, column=4)
-    button_division.grid(row=1,column=4)
+    button_addition.grid(row=5, column=4)
+    button_subtraction.grid(row=4, column=4)
+    button_multiplication.grid(row=3, column=4)
+    button_division.grid(row=2,column=4)
 
-    button_equal.grid(row=5, column=4)
+    button_equal.grid(row=6, column=4)
 
 
 def manipulation_utilities_buttons(root, entry):
@@ -57,7 +58,7 @@ def manipulation_utilities_buttons(root, entry):
 
     button_erase.grid(row=1, column=2)
 
-    button_negate.grid(row=5, column=0)
+    button_negate.grid(row=6, column=0)
 
     button_clear.grid(row=1, column=1)
 
@@ -68,10 +69,10 @@ def memory_management_buttons(root, memo_box, entry):
     memo_mrc_frame = Frame(root)
     memo_content = Label(memo_box, text="0")
 
-    button_memo_plus = Button(memo_frame, text="M+", padx=15, pady=13, command=lambda: bl.memory_addition(memo_content,entry))
-    button_memo_minus = Button(memo_frame, text="M-", padx=15, pady=13, command=lambda: bl.memory_subtraction(memo_content,entry))
-    button_mr = Button(memo_mrc_frame, text="MR", padx=15, pady=13, command=lambda: bl.memory_read(memo_content,entry))
-    button_mc = Button(memo_mrc_frame, text="MC", padx=15, pady=13, command=lambda: bl.memory_clean(memo_content))
+    button_memo_plus = Button(memo_frame, text="M+", padx=15, pady=13, command=lambda: mm.memory_addition(memo_content,entry))
+    button_memo_minus = Button(memo_frame, text="M-", padx=15, pady=13, command=lambda: mm.memory_subtraction(memo_content,entry))
+    button_mr = Button(memo_mrc_frame, text="MR", padx=15, pady=13, command=lambda: mm.memory_read(memo_content,entry))
+    button_mc = Button(memo_mrc_frame, text="MC", padx=15, pady=13, command=lambda: mm.memory_clean(memo_content))
 
     memo_content.pack()
 
@@ -84,5 +85,8 @@ def memory_management_buttons(root, memo_box, entry):
     button_memo_plus.pack(side="left")
     button_memo_minus.pack(side="right")
 
+def complex_calculation_buttons(root,entry):
 
+
+    return
 
