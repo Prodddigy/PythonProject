@@ -65,17 +65,22 @@ def manipulation_utilities_buttons(root, entry):
 def memory_management_buttons(root, memo_box, entry):
 
     memo_frame = Frame(root)
+    memo_mrc_frame = Frame(root)
     memo_content = Label(memo_box, text="0")
 
     button_memo_plus = Button(memo_frame, text="M+", padx=15, pady=13, command=lambda: bl.memory_addition(memo_content,entry))
     button_memo_minus = Button(memo_frame, text="M-", padx=15, pady=13, command=lambda: bl.memory_subtraction(memo_content,entry))
-    button_mrc = Button(root, text="MRC", padx=38,pady=13)
+    button_mr = Button(memo_mrc_frame, text="MR", padx=15, pady=13, command=lambda: bl.memory_read(memo_content,entry))
+    button_mc = Button(memo_mrc_frame, text="MC", padx=15, pady=13, command=lambda: bl.memory_clean(memo_content))
 
     memo_content.pack()
 
+    memo_mrc_frame.grid(row=1,column=1)
     memo_frame.grid(row=1,column=0,sticky="nsew")
 
-    button_mrc.grid(row=1,column=1)
+    button_mr.pack(side="right")
+    button_mc.pack(side="left")
+
     button_memo_plus.pack(side="left")
     button_memo_minus.pack(side="right")
 

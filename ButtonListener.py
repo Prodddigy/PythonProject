@@ -124,4 +124,12 @@ def memory_subtraction(memo_content, entry):
     if entry_number == "." or entry_number == "":
         entry_number = 0
 
-    memo_content.config(text= float(memo)- float(entry_number) )
+    memo_content.config(text=float(memo) - float(entry_number))
+
+
+def memory_read(memo_content, entry):
+    entry.delete(0, END)
+    entry.insert(0, memo_content.cget("text"))
+
+def memory_clean(memo_content):
+    memo_content.config(text =0)
