@@ -1,4 +1,4 @@
-from tkinter import END, Button
+from tkinter import END, Button, Frame, Label
 import ButtonListener as bl
 
 
@@ -46,11 +46,14 @@ def basic_calculation_buttons(root, entry):
 
 
 def manipulation_utilities_buttons(root, entry):
+    clean_frame = Frame(root)
     button_negate = Button(root, text="¬", padx=50, pady=20, command=lambda: bl.button_negate(entry))
 
-    button_clear = Button(root, text="C", padx=40, pady=20, command=lambda: bl.button_clear(entry))
+    button_clear = Button(clean_frame, text="C", padx=21, pady=13, command=lambda: bl.button_clear(entry))
 
-    button_erase = Button(root, text="<x", padx=40, pady=20, command=lambda: bl.button_erase(entry))
+    button_erase = Button(clean_frame, text="<x", padx=17, pady=13, command=lambda: bl.button_erase(entry))
+
+    clean_frame.grid(row=1,column=2)
 
     button_erase.grid(row=1, column=2)
 
@@ -59,5 +62,22 @@ def manipulation_utilities_buttons(root, entry):
     button_clear.grid(row=1, column=1)
 
 
-def memory_managment_buttons():
-    return
+def memory_management_buttons(root, memo_box, entry):
+
+    memo_frame = Frame(root)
+    memo_content = Label(memo_box, text="0")
+
+    button_memo_plus = Button(memo_frame, text="M+", padx=15, pady=13, command=lambda: bl.memory_addition(memo_content,entry))
+    button_memo_minus = Button(memo_frame, text="M-", padx=15, pady=13, command=lambda: bl.memory_subtraction(memo_content,entry))
+    button_mrc = Button(root, text="MRC", padx=38,pady=13)
+
+    memo_content.pack()
+
+    memo_frame.grid(row=1,column=0,sticky="nsew")
+
+    button_mrc.grid(row=1,column=1)
+    button_memo_plus.pack(side="left")
+    button_memo_minus.pack(side="right")
+
+
+
