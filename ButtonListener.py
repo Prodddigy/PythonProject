@@ -132,3 +132,14 @@ def calc_root(entry):
         entry.insert(0, sqrt(float(current_num)))
     except ValueError:
         messagebox.showinfo(title="Precision point", message = "Precision point is too long for python to handle")
+
+
+def cal_one_over(entry):
+    current_num = empty_number_replacer(entry)
+
+    try:
+        entry.insert(0, 1 / float(current_num))
+
+    except ZeroDivisionError:
+        messagebox.showinfo(title="Division by zero Error", message="Come on, you are better than that "
+                                                                    "try not to divide by zero...")

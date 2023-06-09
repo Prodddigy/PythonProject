@@ -89,10 +89,18 @@ def memory_management_buttons(root, memo_box, entry):
 
 def complex_calculation_buttons(root, entry):
     square_radical_frame = Frame(root)
+    oneover_factorial_frame = Frame(root)
     square_button = Button(square_radical_frame, text="x²", padx=48, pady=4, command=lambda: bl.calc_square(entry))
     radical_button = Button(square_radical_frame, text ="√",padx=49,pady=4, command=lambda: bl.calc_root(entry))
+    one_over_button = Button(oneover_factorial_frame,text="⅟", padx=48, pady=4, command= lambda: bl.cal_one_over(entry))
+    factorial_button = Button(oneover_factorial_frame,text="x!", padx=48, pady=4)
 
     square_button.pack(side="top")
     radical_button.pack(side="bottom")
 
+
+    one_over_button.pack(side="top")
+    factorial_button.pack(side="bottom")
+
     square_radical_frame.grid(row=2, column =0, sticky="nsew")
+    oneover_factorial_frame.grid(row=2,column= 1, sticky="nsew")
