@@ -4,7 +4,7 @@ import MemoryManipulation as mm
 
 
 def number_buttons(root, entry):
-    #może zrób w pętli jak się da
+    # może zrób w pętli jak się da
     button_1 = Button(root, text="1", padx=50, pady=20, command=lambda: bl.button_number_choice(1, entry))
     button_2 = Button(root, text="2", padx=50, pady=20, command=lambda: bl.button_number_choice(2, entry))
     button_3 = Button(root, text="3", padx=50, pady=20, command=lambda: bl.button_number_choice(3, entry))
@@ -31,17 +31,17 @@ def number_buttons(root, entry):
 
 
 def basic_calculation_buttons(root, entry):
-    button_addition = Button(root, text="+", padx=69, pady=20, command=lambda: bl.button_add(entry))
-    button_subtraction = Button(root, text="-", padx=69, pady=20, command=lambda: bl.button_subtract(entry))
-    button_multiplication = Button(root, text="*", padx=69, pady=20, command=lambda: bl.button_multiply(entry))
-    button_division = Button(root, text="/",padx=69, pady=20,command=lambda: bl.button_divide(entry))
+    button_addition = Button(root, text="+",font="Times 12", padx=69, pady=20, command=lambda: bl.button_add(entry))
+    button_subtraction = Button(root, text="-",font="Times 12", padx=69, pady=20, command=lambda: bl.button_subtract(entry))
+    button_multiplication = Button(root, text="*",font="Times 12", padx=69, pady=20, command=lambda: bl.button_multiply(entry))
+    button_division = Button(root, text="/",font="Times 12", padx=69, pady=20, command=lambda: bl.button_divide(entry))
 
-    button_equal = Button(root, text="=", padx=69, pady=20, command=lambda: bl.button_equal(entry))
+    button_equal = Button(root, text="=",font="Times 12", padx=69, pady=20, command=lambda: bl.button_equal(entry))
 
     button_addition.grid(row=5, column=4)
     button_subtraction.grid(row=4, column=4)
     button_multiplication.grid(row=3, column=4)
-    button_division.grid(row=2,column=4)
+    button_division.grid(row=2, column=4)
 
     button_equal.grid(row=6, column=4)
 
@@ -54,7 +54,7 @@ def manipulation_utilities_buttons(root, entry):
 
     button_erase = Button(clean_frame, text="<x", padx=17, pady=13, command=lambda: bl.button_erase(entry))
 
-    clean_frame.grid(row=1,column=2)
+    clean_frame.grid(row=1, column=2)
 
     button_erase.grid(row=1, column=2)
 
@@ -64,20 +64,21 @@ def manipulation_utilities_buttons(root, entry):
 
 
 def memory_management_buttons(root, memo_box, entry):
-
     memo_frame = Frame(root)
     memo_mrc_frame = Frame(root)
     memo_content = Label(memo_box, text="0")
 
-    button_memo_plus = Button(memo_frame, text="M+", padx=15, pady=13, command=lambda: mm.memory_addition(memo_content,entry))
-    button_memo_minus = Button(memo_frame, text="M-", padx=15, pady=13, command=lambda: mm.memory_subtraction(memo_content,entry))
-    button_mr = Button(memo_mrc_frame, text="MR", padx=15, pady=13, command=lambda: mm.memory_read(memo_content,entry))
+    button_memo_plus = Button(memo_frame, text="M+", padx=15, pady=13,
+                              command=lambda: mm.memory_addition(memo_content, entry))
+    button_memo_minus = Button(memo_frame, text="M-", padx=15, pady=13,
+                               command=lambda: mm.memory_subtraction(memo_content, entry))
+    button_mr = Button(memo_mrc_frame, text="MR", padx=15, pady=13, command=lambda: mm.memory_read(memo_content, entry))
     button_mc = Button(memo_mrc_frame, text="MC", padx=15, pady=13, command=lambda: mm.memory_clean(memo_content))
 
     memo_content.pack()
 
-    memo_mrc_frame.grid(row=1,column=1)
-    memo_frame.grid(row=1,column=0,sticky="nsew")
+    memo_mrc_frame.grid(row=1, column=1)
+    memo_frame.grid(row=1, column=0)
 
     button_mr.pack(side="right")
     button_mc.pack(side="left")
@@ -85,8 +86,13 @@ def memory_management_buttons(root, memo_box, entry):
     button_memo_plus.pack(side="left")
     button_memo_minus.pack(side="right")
 
-def complex_calculation_buttons(root,entry):
 
+def complex_calculation_buttons(root, entry):
+    square_radical_frame = Frame(root)
+    square_button = Button(square_radical_frame, text="x²", padx=48, pady=4, command=lambda: bl.calc_square(entry))
+    radical_button = Button(square_radical_frame, text ="√",padx=49,pady=4, command=lambda: bl.calc_root(entry))
 
-    return
+    square_button.pack(side="top")
+    radical_button.pack(side="bottom")
 
+    square_radical_frame.grid(row=2, column =0, sticky="nsew")
