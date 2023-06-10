@@ -131,15 +131,28 @@ def calc_root(entry):
 
         entry.insert(0, sqrt(float(current_num)))
     except ValueError:
-        messagebox.showinfo(title="Precision point", message = "Precision point is too long for python to handle")
+        messagebox.showinfo(title="Precision point", message="Precision point is too long for python to handle")
 
 
-def cal_one_over(entry):
+def calc_one_over(entry):
     current_num = empty_number_replacer(entry)
-
+    entry.delete(0, END)
     try:
         entry.insert(0, 1 / float(current_num))
 
     except ZeroDivisionError:
         messagebox.showinfo(title="Division by zero Error", message="Come on, you are better than that "
                                                                     "try not to divide by zero...")
+
+
+def calc_factorial(entry):
+    try:
+        current_num = int(empty_number_replacer(entry))
+        result = 1
+        entry.delete(0,END)
+        for n in range(2, current_num + 1):
+            result *= n
+        entry.insert(0, result)
+    except TypeError:
+        messagebox.showinfo(title="Factorial of float", message="In order to use factorial you must enter integer "
+                                                                "number.")
