@@ -1,7 +1,15 @@
 from tkinter import Button, Frame, Label
 import ButtonListener as bl
 import MemoryManipulation as mm
+"""
+This module provides a set of functions used for creation of buttons that fill the calculator 
 
+Functions:
+    number_buttons -- Adds buttons 0-9 and a dot "."
+    basic_calculation_buttons -- Adds buttons : +,-,*,+,= for 
+    memory_read -- Reads value from memory_content text and inserts it into entry field
+    memory clean -- Cleans the memory_content text
+"""
 
 def number_buttons(root, entry):
     # może zrób w pętli jak się da
