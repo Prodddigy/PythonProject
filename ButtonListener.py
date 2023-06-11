@@ -5,7 +5,7 @@ from math import sqrt
 def button_number_choice(number, entry):
     current = entry.get()
     if number == "." and "." in current:
-        print("can't add more dots")
+        return
     else:
         entry.delete(0, END)
         entry.insert(0, str(current) + str(number))
@@ -70,7 +70,7 @@ def button_divide(entry):
 
 def check_empty_number(first_number):
     if first_number == '':
-        messagebox.showinfo(title="Puste pole", message="Zanim wciśniesz przycisk '=' stwórz obliczenie np. 2 + 2 :)")
+        messagebox.showinfo(title="Empty field", message="Before you press '=' create a equation ex. 2 + 2 :)")
     else:
         global current_number
         if first_number == ".":
@@ -90,8 +90,7 @@ def button_equal(entry):
     second_number = empty_number_replacer(entry)
     entry.delete(0, END)
     if ('current_symbol' not in globals()) or 'current_number' not in globals():
-        messagebox.showinfo(title="Puste pole", message="Zanim wciśniesz przycisk '=' stwórz obliczenie np. 2 + 2 :)")
-        print("global")
+        messagebox.showinfo(title="Empty field", message="Before you press '=' create a equation ex. 2 + 2 :)")
     else:
 
         if current_symbol == "addition":
@@ -149,10 +148,39 @@ def calc_factorial(entry):
     try:
         current_num = int(empty_number_replacer(entry))
         result = 1
-        entry.delete(0,END)
+        entry.delete(0, END)
         for n in range(2, current_num + 1):
             result *= n
         entry.insert(0, result)
     except TypeError:
         messagebox.showinfo(title="Factorial of float", message="In order to use factorial you must enter integer "
                                                                 "number.")
+
+
+def calc_percentage(entry):
+    current_num = int(empty_number_replacer(entry))
+    entry.delete(0, END)
+    entry.insert(0, float(current_num) / 100)
+
+
+def show_instruction():
+    messagebox.showinfo(title="How to use this calculator", message="Instructions:"
+    "Press number from 0-9 and press a desired calculation: +, -, /, *; and then choose second number for the equation.\n"
+    "Finally press \" = \" button to show the result.\n"
+    "Starting from Top left corner:\n"
+    "M+: this action adds the currently seen result in memory and is later shown on the left side corner.\n"
+    "M-: on the other hands subtracts from the currently saved memory.\n"
+    "MC: clears the current memory.\n"
+    "MR: reads from the memory and puts it into the entry.\n"
+    "C: cleans the current entry.\n"
+    "<x: erases the entry digit by digit with each click.\n"
+    "x²: raises the entry number to 2nd power.\n"
+    "√: calculates a square root of the entry number.\n"
+    "⅟: calculates division of 1 by entry number.\n"
+    "x!: calculates factorial of the entry number.\n"
+    "%: makes a percentage number of entry number.\n"
+    "¬: this negates the entry number.\n"
+    ".: adds a float point precision to the result.\n"
+    "\'/\': division ; \'*\': muliplication ; \'-\': subtraction ; \'+\' addition ; \'=\': equal sign.\n")
+
+

@@ -92,10 +92,15 @@ def memory_management_buttons(root, memo_box, entry):
 def complex_calculation_buttons(root, entry):
     square_radical_frame = Frame(root)
     oneover_factorial_frame = Frame(root)
+    perc_info_frame = Frame(root)
+
     square_button = Button(square_radical_frame, text="x²", padx=48, pady=4, command=lambda: bl.calc_square(entry))
     radical_button = Button(square_radical_frame, text="√", padx=49, pady=4, command=lambda: bl.calc_root(entry))
     one_over_button = Button(oneover_factorial_frame, text="⅟", padx=48, pady=4, command=lambda: bl.calc_one_over(entry))
     factorial_button = Button(oneover_factorial_frame, text="x!", padx=48, pady=4, command=lambda: bl.calc_factorial(entry))
+    precentage_button = Button(perc_info_frame, text="%", padx=48, pady=4, command =lambda: bl.calc_percentage(entry))
+    info_button = Button(perc_info_frame, text= "i", padx=48, pady=4, command= lambda: bl.show_instruction())
+
 
     square_button.pack(side="top")
     radical_button.pack(side="bottom")
@@ -103,5 +108,9 @@ def complex_calculation_buttons(root, entry):
     one_over_button.pack(side="top")
     factorial_button.pack(side="bottom")
 
+    precentage_button.pack(side="top")
+    info_button.pack(side="bottom")
+
     square_radical_frame.grid(row=2, column=0, sticky="nsew")
     oneover_factorial_frame.grid(row=2, column=1, sticky="nsew")
+    perc_info_frame.grid(row=2,column=2, sticky="nsew")

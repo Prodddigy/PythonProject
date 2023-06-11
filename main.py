@@ -1,8 +1,5 @@
 from tkinter import *
-from tkinter import messagebox
 import ButtonPack as bp
-
-global entry
 
 if __name__ == "__main__":
     global root
