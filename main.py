@@ -1,15 +1,22 @@
 from tkinter import *
 import ButtonPack as bp
+"""
+This module is the main module of project it creates Root of TKinter 
+and adds entry (Entry) to the root with memo_box(LabelFrame).
+And after that it invokes methods from ButtonPack module that
+fills the root with buttons and functionalities.
 
+
+"""
 if __name__ == "__main__":
-    global root
+
 
     root = Tk()
 
-    root.title("Najlepszy Kalkulator na świecie!")
+    root.title("Best Calculator in the World!!!")
 
     entry = Entry(root, width=50, borderwidth=5)
-
+    entry.config(state=DISABLED)
     entry.grid(row=0, column=0, columnspan=3, padx=15, pady=10)
     memo_box = LabelFrame(root, height=50, width=150, text="Here is your Memo", cursor="dot")
     memo_box.config(font=("Courier", 10))

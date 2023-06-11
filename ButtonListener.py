@@ -1,35 +1,44 @@
-from tkinter import END, messagebox
+from tkinter import END, messagebox, DISABLED, NORMAL
 from math import sqrt
 
 
 def button_number_choice(number, entry):
+    entry.config(state=NORMAL)
     current = entry.get()
     if number == "." and "." in current:
-        return
+        entry.config(state=DISABLED)
     else:
         entry.delete(0, END)
         entry.insert(0, str(current) + str(number))
+        entry.config(state=DISABLED)
 
 
 def button_negate(entry):
+    entry.config(state=NORMAL)
     current = entry.get()
     entry.delete(0, END)
 
     entry.insert(0, -1 * float(current))
+    entry.config(state=DISABLED)
 
 
 def button_clear(entry):
+    entry.config(state=NORMAL)
     entry.delete(0, END)
+    entry.config(state=DISABLED)
 
 
 def button_erase(entry):
+    entry.config(state=NORMAL)
     a = entry.get()
     if a != '':
         entry.delete(0, END)
         entry.insert(0, a[:-1])
+    entry.config(state=DISABLED)
 
 
 def button_add(entry):
+    entry.config(state=NORMAL)
     first_number = entry.get()
 
     global current_symbol
@@ -37,9 +46,11 @@ def button_add(entry):
     current_symbol = "addition"
     check_empty_number(first_number)
     entry.delete(0, END)
+    entry.config(state=DISABLED)
 
 
 def button_subtract(entry):
+    entry.config(state=NORMAL)
     first_number = entry.get()
 
     global current_symbol
@@ -47,9 +58,11 @@ def button_subtract(entry):
     current_symbol = "subtraction"
     check_empty_number(first_number)
     entry.delete(0, END)
+    entry.config(state=DISABLED)
 
 
 def button_multiply(entry):
+    entry.config(state=NORMAL)
     first_number = entry.get()
     global current_symbol
     global current_number
@@ -57,15 +70,17 @@ def button_multiply(entry):
 
     check_empty_number(first_number)
     entry.delete(0, END)
-
+    entry.config(state=DISABLED)
 
 def button_divide(entry):
+    entry.config(state=NORMAL)
     first_number = entry.get()
     global current_symbol
     global current_number
     current_symbol = "division"
     check_empty_number(first_number)
     entry.delete(0, END)
+    entry.config(state=DISABLED)
 
 
 def check_empty_number(first_number):
@@ -87,6 +102,7 @@ def empty_number_replacer(entry):
 
 
 def button_equal(entry):
+    entry.config(state=NORMAL)
     second_number = empty_number_replacer(entry)
     entry.delete(0, END)
     if ('current_symbol' not in globals()) or 'current_number' not in globals():
@@ -110,9 +126,11 @@ def button_equal(entry):
                 messagebox.showinfo(title="Division by zero Error", message="Come on, you are better than that "
                                                                             "try not to divide by zero...")
                 entry.delete(0, END)
+    entry.config(state=DISABLED)
 
 
 def calc_square(entry):
+    entry.config(state=NORMAL)
     current_num = empty_number_replacer(entry)
     entry.delete(0, END)
 
@@ -122,18 +140,22 @@ def calc_square(entry):
     except OverflowError:
         messagebox.showinfo(title="Too big number", message="The number is too large and to difficult for python :( "
                                                             "to calculate")
+    entry.config(state=DISABLED)
 
 
 def calc_root(entry):
+    entry.config(state=NORMAL)
     current_num = empty_number_replacer(entry)
     try:
 
         entry.insert(0, sqrt(float(current_num)))
     except ValueError:
         messagebox.showinfo(title="Precision point", message="Precision point is too long for python to handle")
+    entry.config(state=DISABLED)
 
 
 def calc_one_over(entry):
+    entry.config(state=NORMAL)
     current_num = empty_number_replacer(entry)
     entry.delete(0, END)
     try:
@@ -142,9 +164,11 @@ def calc_one_over(entry):
     except ZeroDivisionError:
         messagebox.showinfo(title="Division by zero Error", message="Come on, you are better than that "
                                                                     "try not to divide by zero...")
+    entry.config(state=DISABLED)
 
 
 def calc_factorial(entry):
+    entry.config(state=NORMAL)
     try:
         current_num = int(empty_number_replacer(entry))
         result = 1
@@ -155,32 +179,33 @@ def calc_factorial(entry):
     except TypeError:
         messagebox.showinfo(title="Factorial of float", message="In order to use factorial you must enter integer "
                                                                 "number.")
+    entry.config(state=DISABLED)
 
 
 def calc_percentage(entry):
+    entry.config(state=NORMAL)
     current_num = int(empty_number_replacer(entry))
     entry.delete(0, END)
     entry.insert(0, float(current_num) / 100)
+    entry.config(state=DISABLED)
 
 
 def show_instruction():
     messagebox.showinfo(title="How to use this calculator", message="Instructions:"
-    "Press number from 0-9 and press a desired calculation: +, -, /, *; and then choose second number for the equation.\n"
-    "Finally press \" = \" button to show the result.\n"
-    "Starting from Top left corner:\n"
-    "M+: this action adds the currently seen result in memory and is later shown on the left side corner.\n"
-    "M-: on the other hands subtracts from the currently saved memory.\n"
-    "MC: clears the current memory.\n"
-    "MR: reads from the memory and puts it into the entry.\n"
-    "C: cleans the current entry.\n"
-    "<x: erases the entry digit by digit with each click.\n"
-    "x²: raises the entry number to 2nd power.\n"
-    "√: calculates a square root of the entry number.\n"
-    "⅟: calculates division of 1 by entry number.\n"
-    "x!: calculates factorial of the entry number.\n"
-    "%: makes a percentage number of entry number.\n"
-    "¬: this negates the entry number.\n"
-    ".: adds a float point precision to the result.\n"
-    "\'/\': division ; \'*\': muliplication ; \'-\': subtraction ; \'+\' addition ; \'=\': equal sign.\n")
-
-
+                                                                    "Press number from 0-9 and press a desired calculation: +, -, /, *; and then choose second number for the equation.\n"
+                                                                    "Finally press \" = \" button to show the result.\n"
+                                                                    "Starting from Top left corner:\n"
+                                                                    "M+: this action adds the currently seen result in memory and is later shown on the left side corner.\n"
+                                                                    "M-: on the other hands subtracts from the currently saved memory.\n"
+                                                                    "MC: clears the current memory.\n"
+                                                                    "MR: reads from the memory and puts it into the entry.\n"
+                                                                    "C: cleans the current entry.\n"
+                                                                    "<x: erases the entry digit by digit with each click.\n"
+                                                                    "x²: raises the entry number to 2nd power.\n"
+                                                                    "√: calculates a square root of the entry number.\n"
+                                                                    "⅟: calculates division of 1 by entry number.\n"
+                                                                    "x!: calculates factorial of the entry number.\n"
+                                                                    "%: makes a percentage number of entry number.\n"
+                                                                    "¬: this negates the entry number.\n"
+                                                                    ".: adds a float point precision to the result.\n"
+                                                                    "\'/\': division ; \'*\': muliplication ; \'-\': subtraction ; \'+\' addition ; \'=\': equal sign.\n")
