@@ -5,14 +5,29 @@ import MemoryManipulation as mm
 This module provides a set of functions used for creation of buttons that fill the calculator 
 
 Functions:
-    number_buttons -- Adds buttons 0-9 and a dot "."
-    basic_calculation_buttons -- Adds buttons : +,-,*,+,= for 
-    memory_read -- Reads value from memory_content text and inserts it into entry field
-    memory clean -- Cleans the memory_content text
+    number_buttons -- Adds buttons 0-9 and a dot "." to the root
+    basic_calculation_buttons -- Adds buttons to the root: +,-,*,/,=; for addition, subtraction,multiplication,division and  equation sign 
+    manipulation_utilities_buttons -- Adds buttons to the root for simple manipulation of contents of entry like:¬,C,<x; for
+                                        negation, clearing whole entry, backspace clearing digit by digit 
+    memory_management_buttons -- Adds buttons to the root: M+,M-,MR,MC; for addition to memory, subtraction from memory,
+                                    reading from memory, clearing the memory
+    complex_calculation_buttons -- Adds buttons to the root which manipulates the entry in more complex ways:
+                                    x²,√,x!,%: for calculating power of 2 of entry number, square roof of entry number,
+                                    factorial of entry number, creates a percentage of an entry number
+                                    Additionally adds i button that shows instructions for calculator.
 """
 
 def number_buttons(root, entry):
-    # może zrób w pętli jak się da
+    """
+            Adds buttons 0-9 and a dot "." to the root
+
+            Args:
+                root (TK) : is the window for putting in buttons and other functionalities'
+                entry (Entry): Entry which holds calculations done by user
+
+            Returns:
+                void
+            """
     button_1 = Button(root, text="1", padx=50, pady=20, command=lambda: bl.button_number_choice(1, entry))
     button_2 = Button(root, text="2", padx=50, pady=20, command=lambda: bl.button_number_choice(2, entry))
     button_3 = Button(root, text="3", padx=50, pady=20, command=lambda: bl.button_number_choice(3, entry))
@@ -39,6 +54,16 @@ def number_buttons(root, entry):
 
 
 def basic_calculation_buttons(root, entry):
+    """
+                Adds buttons to the root: +,-,*,/,=; for addition, subtraction,multiplication,division and  equation sign
+
+                Args:
+                    root (TK) : is the window for putting in buttons and other functionalities'
+                    entry (Entry): Entry which holds calculations done by user
+
+                Returns:
+                    void
+                """
     button_addition = Button(root, text="+", font="Times 12", padx=69, pady=20, command=lambda: bl.button_add(entry))
     button_subtraction = Button(root, text="-", font="Times 12", padx=69, pady=20,
                                 command=lambda: bl.button_subtract(entry))
@@ -57,6 +82,17 @@ def basic_calculation_buttons(root, entry):
 
 
 def manipulation_utilities_buttons(root, entry):
+    """
+                    Adds buttons to the root for simple manipulation of contents of entry like:¬,C,<x; for
+                                        negation, clearing whole entry, backspace clearing digit by digit
+
+                    Args:
+                        root (TK) : is the window for putting in buttons and other functionalities'
+                        entry (Entry): Entry which holds calculations done by user
+
+                    Returns:
+                        void
+                    """
     clean_frame = Frame(root)
     button_negate = Button(root, text="¬", padx=50, pady=20, command=lambda: bl.button_negate(entry))
 
@@ -74,6 +110,18 @@ def manipulation_utilities_buttons(root, entry):
 
 
 def memory_management_buttons(root, memo_box, entry):
+    """
+                        Adds buttons to the root: M+,M-,MR,MC; for addition to memory, subtraction from memory,
+                                    reading from memory, clearing the memory
+
+                        Args:
+                            root (TK) : is the window for putting in buttons and other functionalities'
+                            memo_box (LabelFrame) : is the box which holds memory value
+                            entry (Entry): Entry which holds calculations done by user
+
+                        Returns:
+                            void
+                        """
     memo_frame = Frame(root)
     memo_mrc_frame = Frame(root)
     memo_content = Label(memo_box, text="0")
@@ -98,6 +146,21 @@ def memory_management_buttons(root, memo_box, entry):
 
 
 def complex_calculation_buttons(root, entry):
+    """
+                            Adds buttons to the root which manipulates the entry in more complex ways:
+                                    x²,√,x!,%,⅟: for calculating power of 2 of entry number, square roof of entry number,
+                                    factorial of entry number, creates a percentage of an entry number, divide 1 by entry number.
+                                    Additionally, adds "i" button that shows instructions for calculator.
+                                    "i" button is put here for the design purposes and does not implicitly serve
+                                    as a functionality.
+
+                            Args:
+                                root (TK) : is the window for putting in buttons and other functionalities'
+                                entry (Entry): Entry which holds calculations done by user
+
+                            Returns:
+                                void
+                            """
     square_radical_frame = Frame(root)
     oneover_factorial_frame = Frame(root)
     perc_info_frame = Frame(root)
