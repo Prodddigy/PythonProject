@@ -1,8 +1,8 @@
 # PythonProject
-Calculator
-#This project serves as a simple calculation software for calculations have fun!
+-Calculator
+# This project serves as a simple calculation software for calculations have fun!
 
-#Instructions:
+# Instructions:
 - Press number from 0-9 and press a desired calculation: +, -, /, *; and then choose second number for the equation.
 - Finally press " = " button to show the result.
 - Starting from Top left corner:
