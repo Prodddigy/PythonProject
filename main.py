@@ -12,6 +12,7 @@ if __name__ == "__main__":
 
 
     root = Tk()
+    root['bg'] = 'grey'
 
     root.title("Best Calculator in the World!!!")
 
@@ -21,7 +22,7 @@ if __name__ == "__main__":
     entry.grid(row=0, column=0, columnspan=3, padx=15, pady=10)
 
     # memo_box will hold memory
-    memo_box = LabelFrame(root, height=50, width=150, text="Here is your Memo", cursor="dot")
+    memo_box = LabelFrame(root, height=50, width=150, text="Here is your Memo", cursor="dot", bg = "grey")
     memo_box.config(font=("Courier", 10))
     memo_box.grid(row=0, column=4)
 
@@ -32,6 +33,6 @@ if __name__ == "__main__":
     bp.memory_management_buttons(root, memo_box, entry)
     bp.complex_calculation_buttons(root, entry)
 
-    # here I make the calculator non resizeable
+    # here I make the calculator non-resizeable
     root.resizable(height=False, width=False)
     root.mainloop()
