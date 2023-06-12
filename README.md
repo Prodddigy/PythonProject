@@ -1,7 +1,11 @@
 # PythonProject
 - Calculator
-# This project serves as a simple calculation software for calculations have fun!
-
+- This project serves as a simple calculation software for calculations have fun!
+# Files listing:
+- `main.py` contains the root and enabales all the necessary buttons to fill the calculator
+- `ButonPack.py` contains all button creations spearated into functions that create specific "type" of buttons
+- `ButtonListener.py` contains nearly all functions used by buttons from `ButtonPack.py`
+- `MemoryManipulation.py` contains functions used by memory panel buttons
 # Instructions:
 - Press number from 0-9 and press a desired calculation: +, -, /, *; and then choose second number for the equation.
 - Finally press " = " button to show the result.
