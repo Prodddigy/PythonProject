@@ -1,5 +1,5 @@
 # PythonProject
--Calculator
+- Calculator
 # This project serves as a simple calculation software for calculations have fun!
 
 # Instructions:
