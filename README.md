@@ -13,10 +13,10 @@ Calculator
 - C: cleans the current entry.
 - <x: erases the entry digit by digit with each click.
 - x²: raises the entry number to 2nd power.
-"√: calculates a square root of the entry number."
-"⅟: calculates division of 1 by entry number."
-"x!: calculates factorial of the entry number."
-"%: makes a percentage number of entry number."
-"¬: this negates the entry number."
-".: adds a float point precision to the result."
-"'/': division ; '*': muliplication ; '-': subtraction ; '+' addition ; '=': equal sign."
+- √: calculates a square root of the entry number.
+- ⅟: calculates division of 1 by entry number.
+- x!: calculates factorial of the entry number.
+- %: makes a percentage number of entry number.
+- ¬: this negates the entry number.
+- .: adds a float point precision to the result.
+- '/': division ; '*': muliplication ; '-': subtraction ; '+' addition ; '=': equal sign.
