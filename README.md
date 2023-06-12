@@ -10,7 +10,7 @@
 - Press number from 0-9 and press a desired calculation: +, -, /, *; and then choose second number for the equation.
 - Finally press " = " button to show the result.
 - Starting from Top left corner:
-- M+: this action adds the currently seen result in memory and is later shown on the left side corner.
+- M+: this action adds the currently seen result in memory and is later shown on the right side corner.
 - M-: on the other hands subtracts from the currently saved memory.
 - MC: clears the current memory.
 - MR: reads from the memory and puts it into the entry.
